@@ -1,14 +1,24 @@
 package Java8Features.Practice;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
+
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 public class Test {
     public static void main(String[] args) {
-        List<Integer> l= Arrays.asList(1,2,3,4,5);
-        List<Integer> list=new LinkedList<>(l);
-        list.subList(1,3).clear();
-        System.out.println(list);
+        int array[] = {1, 2, 3, 4, 5, 6, 2, 6, 9};
+        int target = 8;
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+
+        for (int i = 0; i < array.length; i++) {
+            int complement = target - array[i];
+            if (hashMap.containsKey(complement)) {
+                System.out.println("Pair found " + complement + " , " + array[i]);
+            }
+
+            hashMap.put(array[i], i);
+        }
     }
 }

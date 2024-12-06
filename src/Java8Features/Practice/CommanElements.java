@@ -7,7 +7,10 @@ import java.util.stream.Collectors;
 public class CommanElements {
 
     public static void commonElement(int[] array1, int[] array2){
-        List<Integer> commenElement= Arrays.stream(array1).filter(number->Arrays.stream(array2).anyMatch(array2Number->array2Number==number)).boxed().collect(Collectors.toList());
+        List<Integer> commenElement= Arrays.stream(array1)
+                .filter(number->Arrays.stream(array2)
+                        .anyMatch(array2Number->array2Number==number))
+                .boxed().collect(Collectors.toList());
         System.out.println("Common elements are: "+commenElement);
     }
     public static void main(String[] args) {
